@@ -5,7 +5,6 @@ import shutil
 from pprint import pprint
 from termcolor import colored, cprint
 from colorama import init
-from tabulate import tabulate
 
 
 class Sorter:
