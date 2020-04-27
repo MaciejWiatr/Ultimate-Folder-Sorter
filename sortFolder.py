@@ -24,7 +24,7 @@ class Sorter:
                                   \n-- By Maciej Wiatr --\n"""
         self.directories = {
             'Images': ['png', 'jpg', 'jpeg', 'svg', 'gif', 'bmp', 'ico', 'gvdesign'],
-            'Executable': ['exe', 'msi', 'bat', 'jar'],
+            'Executable': ['exe', 'msi', 'bat', 'jar', "url", 'lnk'],
             'Documents': ['mobi', 'epub', 'txt', 'pdf', 'doc', 'xlsx', 'docx', 'md', 'pptx', 'csv', 'srt', 'cbr',
                           'azw3', 'opf'],
             'Videos': ['mp4', 'avi', 'mkv'],
