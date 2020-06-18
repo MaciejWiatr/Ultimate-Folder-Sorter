@@ -26,9 +26,9 @@ class Sorter:
             'Images': ['png', 'jpg', 'jpeg', 'svg', 'gif', 'bmp', 'ico', 'gvdesign'],
             'Executable': ['exe', 'msi', 'bat', 'jar', "url", 'lnk'],
             'Documents': ['mobi', 'epub', 'txt', 'pdf', 'doc', 'xlsx', 'docx', 'md', 'pptx', 'csv', 'srt', 'cbr',
-                          'azw3', 'opf'],
+                          'azw3', 'opf', "md"],
             'Videos': ['mp4', 'avi', 'mkv'],
-            'Audio': ['mp3'],
+            'Audio': ['mp3',"flac"],
             'Coding': ['sqlite', 'py', 'js', 'war', 'npz', 'html', 'css', 'xml', 'log'],
             'Compressed': ['zip', '7z', 'rar', 'deb']
         }
@@ -58,12 +58,16 @@ class Sorter:
             for dest_path_name, extensions in self.directories.items():
                 if file_extension in extensions:
                     if os.path.exists(os.path.join(self.get_directory_name(dest_path_name), file)):
-                        shutil.move(
-                            file, self.get_directory_name(dest_path_name))
-                        if dest_path_name not in self.moved_files:
-                            self.moved_files[dest_path_name] = [file]
-                        else:
-                            self.moved_files[dest_path_name].append(file)
+                        try:
+                            shutil.move(
+                                file, self.get_directory_name(dest_path_name))
+                            if dest_path_name not in self.moved_files:
+                                self.moved_files[dest_path_name] = [file]
+                            else:
+                                self.moved_files[dest_path_name].append(file)
+                        except:
+                            print(
+                                f'File transfer has failed. {file} cannot be moved')
                     else:
                         pass
 
